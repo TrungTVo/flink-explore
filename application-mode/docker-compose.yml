@@ -1,0 +1,46 @@
+services:
+  jobmanager:
+    image: flink:2.1.1-java21
+    hostname: jobmanager
+    container_name: jobmanager
+    ports:
+      - "8081:8081"
+    command: standalone-job --job-classname org.apache.flink.streaming.examples.windowing.TopSpeedWindowing --jars ../opt/flink/artifacts/WordCount.jar, ../opt/flink/artifacts/TopSpeedWindowing.jar
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+    volumes:
+      - ../opt/flink/artifacts:/opt/flink/artifacts
+
+  taskmanager:
+    image: flink:2.1.1-java21
+    hostname: taskmanager
+    container_name: taskmanager
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    scale: 1
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 2
+    volumes:
+      - ../opt/flink/artifacts:/opt/flink/artifacts
+
+  sql-client:
+    image: flink:2.1.1-java21
+    hostname: sql-client
+    container_name: sql-client
+    depends_on:
+      - jobmanager
+    command: bin/sql-client.sh embedded
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        rest.address: jobmanager
+        rest.port: 8081
+    tty: true
+    stdin_open: true
