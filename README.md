@@ -1,6 +1,6 @@
 ## Start Cluster in Application Mode
 ```
-docker compose -f ./application-mode/docker-compose.yml up -d
+docker compose -f ./deployment/application-mode/docker-compose.yml up -d
 ```
 
 In this mode, a `jobmanager` runs a single Flink Job. In other words, each job will create a new `jobmanager`. It's IMPORTANT to know that when your application (job) completes, the entire cluster shuts down automatically. This is one of the key differences between Session Mode and Application Mode.
@@ -14,14 +14,14 @@ Because in Application Mode:
 
 Sample Job (default) is specified in `application-mode/docker-compose.yml` as:
 ```
-command: standalone-job --job-classname org.apache.flink.streaming.examples.windowing.TopSpeedWindowing --jars ../opt/flink/artifacts/WordCount.jar, ../opt/flink/artifacts/TopSpeedWindowing.jar
+command: standalone-job --job-classname org.apache.flink.streaming.examples.windowing.TopSpeedWindowing --jars /opt/flink/examples/streaming/WordCount.jar, /opt/flink/examples/streaming/TopSpeedWindowing.jar
 ```
 
-List of `--jars` files can be separated by comma, but only a single job with its classname is executed by specified `--job-classname`
+By default, Flink image comes with several sample Flink jobs in `/opt/flink/examples` folder. List of `--jars` files can be separated by comma, but only a single job with its classname is executed by specified `--job-classname`
 
 ## Start Cluster in Session Mode
 ```
-docker compose -f ./session-mode/docker-compose.yml up -d
+docker compose -f ./deployment/session-mode/docker-compose.yml up -d
 ```
 
 ### Submit Flink Job

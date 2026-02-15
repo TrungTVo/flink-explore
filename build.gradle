@@ -1,0 +1,117 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'eclipse'
+    // shadow plugin to produce fat JARs
+    id 'com.gradleup.shadow' version '9.3.1'
+}
+
+// artifact properties
+group = 'org.quickstart'
+version = '0.1-SNAPSHOT'
+description = """Flink Quickstart Job"""
+
+ext {
+    javaVersion = 21
+    flinkVersion = '2.2.0'
+    scalaBinaryVersion = '_2.12'
+    slf4jVersion = '2.0.16'
+    log4jVersion = '2.24.3'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainClass = 'org.quickstart.DataStreamJob'
+    applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=log4j2.properties"]
+}
+
+// declare where to find the dependencies of your project
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://repository.apache.org/content/repositories/snapshots")
+        mavenContent { snapshotsOnly() }
+    }
+}
+
+// NOTE: We cannot use "compileOnly" or "shadow" configurations since then we could not run code
+// in the IDE or with "gradle run". We also cannot exclude transitive dependencies from the
+// shadowJar yet (see https://github.com/johnrengelman/shadow/issues/159).
+// -> Explicitly define the libraries we want to be excluded in the "flinkShadowJar" configuration!
+configurations {
+    flinkShadowJar // dependencies which go into the shadowJar
+    // always exclude these (also from transitive dependencies) since they are provided by Flink Cluster runtime classpath and would cause conflicts if included in the shadow JAR:
+    flinkShadowJar.exclude group: 'org.apache.flink', module: 'force-shading'
+    flinkShadowJar.exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    flinkShadowJar.exclude group: 'org.slf4j'
+    flinkShadowJar.exclude group: 'org.apache.logging.log4j'
+}
+
+// declare the dependencies for your production and test code
+dependencies {
+    // --------------------------------------------------------------
+    // Compile-time ONLY (Flink CORE) dependencies that should NOT be part of the
+    // shadow (fat/uber) JAR and are provided in the lib/ folder of Flink Cluster.
+    // The program needs these dependencies at compile time, but they should not 
+    // be included in the final JAR since they are provided by the Flink runtime in cluster.
+    // --------------------------------------------------------------
+    compileOnly "org.apache.flink:flink-streaming-java:${flinkVersion}"
+    compileOnly "org.apache.flink:flink-clients:${flinkVersion}"
+
+    // --------------------------------------------------------------
+    // Dependencies that should be part of the shadow (fat) JAR, e.g.
+    // connectors. These must be in the flinkShadowJar configuration!
+    // Think of these as "compile and runtime" dependencies that are not provided by the Flink runtime in cluster.
+    // If you want to use a connector, you need to add it here. For example, for the FileSystem connector.
+    // --------------------------------------------------------------
+    flinkShadowJar "org.apache.flink:flink-connector-files:${flinkVersion}"
+
+    // Logging for local runs / tests
+    runtimeOnly "org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}"
+    runtimeOnly "org.apache.logging.log4j:log4j-api:${log4jVersion}"
+    runtimeOnly "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+
+    // Add test dependencies here.
+    // testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+}
+
+// make flinkShadowJar dependencies available for main/test/javadoc and gradle run:
+sourceSets {
+    main.compileClasspath += configurations.flinkShadowJar
+    main.runtimeClasspath += configurations.flinkShadowJar
+    test.compileClasspath += configurations.flinkShadowJar
+    test.runtimeClasspath += configurations.flinkShadowJar
+    javadoc.classpath += configurations.flinkShadowJar
+}
+
+tasks.named('run') {
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+jar {
+    manifest {
+        attributes(
+            'Built-By': System.getProperty('user.name'),
+            'Build-Jdk': System.getProperty('java.version')
+        )
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.flinkShadowJar]
+}
+
+eclipse {
+    classpath {
+        plusConfigurations += [configurations.flinkShadowJar]
+    }
+}

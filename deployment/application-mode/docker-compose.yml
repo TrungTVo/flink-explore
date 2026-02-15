@@ -1,18 +1,18 @@
 services:
   jobmanager:
-    image: flink:2.1.1-java21
+    image: flink:2.2.0-java21
     hostname: jobmanager
     container_name: jobmanager
     ports:
       - "8081:8081"
-    command: jobmanager
+    command: standalone-job --job-classname org.apache.flink.streaming.examples.windowing.TopSpeedWindowing --jars /opt/flink/examples/streaming/WordCount.jar, /opt/flink/examples/streaming/TopSpeedWindowing.jar
     environment:
       - |
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
 
   taskmanager:
-    image: flink:2.1.1-java21
+    image: flink:2.2.0-java21
     hostname: taskmanager
     container_name: taskmanager
     depends_on:
@@ -26,7 +26,7 @@ services:
         taskmanager.numberOfTaskSlots: 2
 
   sql-client:
-    image: flink:2.1.1-java21
+    image: flink:2.2.0-java21
     hostname: sql-client
     container_name: sql-client
     depends_on:
