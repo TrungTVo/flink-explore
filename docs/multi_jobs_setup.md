@@ -3,46 +3,46 @@
 Sample Structure
 ```
 flink-explore/
-    settings.gradle
-    gradle.properties
-    build.gradle                # (optional, for shared config)
-    flink-jobs/
-        common/                 # (optional, for shared code)
-            build/
-                classes/
-                libs/
-                    common-0.1.jar             # thin JAR
-            build.gradle
-            src/
-                main/
-                    java/
-                        org/
-                            quickstart/
-                                JobBaseCommon.java
-        job1/
-            build/
-                classes/
-                libs/
-                    job1-0.1-all.jar            # shadow/fat JAR
-            build.gradle
-            src/
-                main/
-                    java/
-                        org/
-                            quickstart/
-                                Job1Main.java
-        job2/
-            build/
-                classes/
-                libs/
-                    job2-0.1-all.jar            # shadow/fat JAR
-            build.gradle
-            src/
-                main/
-                    java/
-                        org/
-                            quickstart/
-                                Job2Main.java
+|-- settings.gradle
+|-- gradle.properties
+|-- build.gradle                              # (optional, for shared config)
+|-- flink-jobs/
+    |-- common/                               # (optional, for shared code)
+    |   |-- build/
+    |   |   |-- classes/
+    |   |   |-- libs/
+    |   |       |-- common-0.1.jar           # thin JAR
+    |   |-- build.gradle
+    |   |-- src/
+    |       |-- main/
+    |           |-- java/
+    |               |-- org/
+    |                   |-- quickstart/
+    |                       |-- JobBaseCommon.java
+    |-- job1/
+    |   |-- build/
+    |   |   |-- classes/
+    |   |   |-- libs/
+    |   |       |-- job1-0.1-all.jar         # shadow/fat JAR
+    |   |-- build.gradle
+    |   |-- src/
+    |       |-- main/
+    |           |-- java/
+    |               |-- org/
+    |                   |-- quickstart/
+    |                       |-- Job1Main.java
+    `-- job2/
+        |-- build/
+        |   |-- classes/
+        |   |-- libs/
+        |       |-- job2-0.1-all.jar         # shadow/fat JAR
+        |-- build.gradle
+        |-- src/
+            |-- main/
+                |-- java/
+                    |-- org/
+                        |-- quickstart/
+                            |-- Job2Main.java
 ```
 
 ## How to run individual Flink Job
