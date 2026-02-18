@@ -14,6 +14,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21/"/>
+	<classpathentry kind="src" path="/common">
+		<attributes>
+			<attribute name="without_test_code" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-clients/2.2.0/1c85d44cb7d8116d081b4916ea309d85dffe2d62/flink-clients-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-clients/2.2.0/b2882ad40a1cb851e01d8499a66fda7b4d61f7a2/flink-clients-2.2.0.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value=""/>

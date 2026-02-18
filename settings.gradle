@@ -1,1 +1,9 @@
 rootProject.name = 'quickstart'
+
+// Include subprojects (their logical Gradle paths)
+include(":common")
+include(":stream-files-connector")
+
+// Point each project to its physical directory under flink-jobs/
+project(":common").projectDir = file("flink-jobs/common")
+project(":stream-files-connector").projectDir = file("flink-jobs/stream-files-connector")

@@ -1,0 +1,21 @@
+dependencies {
+    implementation project(":common")
+
+    // Example: add libraries needed only by this job
+    // If your cluster provides connectors in /lib instead, prefer:
+    // compileOnly "org.apache.flink:flink-connector-files:${flinkVersion}"
+    flinkShadowJar "org.apache.flink:flink-connector-files:${flinkVersion}"
+}
+
+shadowJar {
+    archiveBaseName.set("stream-files-connector")
+    // Ensure manifest has a Main-Class so you can run it as an application artifact if needed
+    // manifest {
+    //     attributes "Main-Class": "org.quickstart.StreamFilesConnector"
+    // }
+}
+
+application {
+    mainClass = 'org.quickstart.StreamFilesConnector'
+    applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=log4j2.properties"]
+}

@@ -3,15 +3,20 @@ package org.quickstart;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringEncoder;
-import org.apache.flink.core.fs.Path;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.connector.file.sink.FileSink;
 import org.apache.flink.connector.file.src.FileSource;
 import org.apache.flink.connector.file.src.reader.TextLineInputFormat;
+import org.apache.flink.core.fs.Path;
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.common.JobBaseCommon;
 
-public class DataStreamJob {
-    public static void main(String[] args) {
+public class StreamFilesConnector {
+    public static void main(String[] args) throws Exception {
+        // Demonstrate usage of JobBaseCommon
+        System.out.println(JobBaseCommon.getCommonMessage());
+
+        // Here you would set up your Flink streaming job to read from files
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         // Usually it's better to use a distributed file system like HDFS or S3 for production, but for simplicity, we use local files here.
@@ -34,7 +39,7 @@ public class DataStreamJob {
         DataStream<Integer> parsed = inputText.map(new MapFunction<String, Integer>() {
             @Override
             public Integer map(String value) {
-                return Integer.parseInt(value);
+                return Integer.parseInt(value) + 1; // Simple transformation: parse the integer and add 1
             }
         });
 
@@ -44,10 +49,6 @@ public class DataStreamJob {
                         new SimpleStringEncoder<Integer>()).build());
 
         parsed.print();
-        try {
-            env.execute("DataStream Job");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        env.execute("StreamFilesConnector Job");
     }
 }

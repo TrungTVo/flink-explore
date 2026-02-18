@@ -1,0 +1,11 @@
+plugins {
+    id "java-library"
+}
+
+group = 'org.common'
+
+dependencies {
+    // Shared utilities can live here.
+    // Keep common light: do NOT put Flink runtime here unless you really want it shared.
+    // api "org.slf4j:slf4j-api:${slf4jVersion}"
+}
