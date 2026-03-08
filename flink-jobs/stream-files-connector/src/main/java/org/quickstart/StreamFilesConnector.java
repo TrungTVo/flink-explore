@@ -1,11 +1,14 @@
 package org.quickstart;
 
+import org.apache.flink.api.common.JobExecutionResult;
+import org.apache.flink.api.common.JobStatus;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringEncoder;
 import org.apache.flink.connector.file.sink.FileSink;
 import org.apache.flink.connector.file.src.FileSource;
 import org.apache.flink.connector.file.src.reader.TextLineInputFormat;
+import org.apache.flink.core.execution.JobClient;
 import org.apache.flink.core.fs.Path;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -49,6 +52,60 @@ public class StreamFilesConnector {
                         new SimpleStringEncoder<Integer>()).build());
 
         parsed.print();
-        env.execute("StreamFilesConnector Job");
+        JobClient jobClient = env.executeAsync("StreamFilesConnector Job");
+        
+        System.out.println("Job submitted, waiting for completion...");
+
+        // Poll job status until completion
+        JobStatus finalStatus = pollJobStatusUntilTerminal(jobClient);
+
+        // Get the final result
+        try {
+            JobExecutionResult result = jobClient.getJobExecutionResult().get();
+            System.out.println("Job finished with runtime: " + result.getNetRuntime() + " ms");
+        } catch (Exception e) {
+            System.err.println("Failed to get job execution result: " + e.getMessage());
+        }
+        System.out.println("Final job status: " + finalStatus);
+    }
+
+    /**
+     * Polls the job status until it reaches a terminal state (FINISHED, FAILED, or CANCELED).
+     * Prints status changes and handles exceptions.
+     * 
+     * @param jobClient The JobClient to poll
+     * @return The final JobStatus, or null if initial status couldn't be retrieved
+     */
+    private static JobStatus pollJobStatusUntilTerminal(JobClient jobClient) {
+        JobStatus currentStatus;
+        try {
+            currentStatus = jobClient.getJobStatus().get();
+            System.out.println("Initial job status: " + currentStatus);
+        } catch (Exception e) {
+            System.err.println("Failed to get initial job status: " + e.getMessage());
+            return null;
+        }
+
+        while (!(currentStatus == JobStatus.FINISHED || currentStatus == JobStatus.FAILED || currentStatus == JobStatus.CANCELED)) {
+            try {
+                Thread.sleep(50); // Poll every 50ms
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.err.println("Polling interrupted: " + e.getMessage());
+                break;
+            }
+            try {
+                JobStatus newStatus = jobClient.getJobStatus().get();
+                if (!newStatus.equals(currentStatus)) {
+                    System.out.println("Job status changed to: " + newStatus);
+                    currentStatus = newStatus;
+                }
+            } catch (Exception e) {
+                System.err.println("Failed to poll job status: " + e.getMessage());
+                break;
+            }
+        }
+
+        return currentStatus;
     }
 }
