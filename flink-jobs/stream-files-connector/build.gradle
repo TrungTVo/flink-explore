@@ -1,5 +1,5 @@
 dependencies {
-    implementation project(":common")
+    flinkShadowJar project(":common")
 
     // Example: add libraries needed only by this job
     // If your cluster provides connectors in /lib instead, prefer:
