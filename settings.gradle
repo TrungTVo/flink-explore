@@ -4,8 +4,10 @@ rootProject.name = 'quickstart'
 include(":common")
 include(":stream-files-connector")
 include(":word-count")
+include(":reduce")
 
 // Point each project to its physical directory under flink-jobs/
 project(":common").projectDir = file("flink-jobs/common")
 project(":stream-files-connector").projectDir = file("flink-jobs/stream-files-connector")
 project(":word-count").projectDir = file("flink-jobs/word-count")
+project(":reduce").projectDir = file("flink-jobs/reduce")
