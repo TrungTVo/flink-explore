@@ -19,11 +19,12 @@ services:
       - jobmanager
     command: taskmanager
     scale: 1
+    # The parallelism of the job should be less than or equal to the number of task slots. Here we set to 16 (host CPU cores)
     environment:
       - |
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
-        taskmanager.numberOfTaskSlots: 2
+        taskmanager.numberOfTaskSlots: 16
 
   sql-client:
     image: flink:2.2.0-java21

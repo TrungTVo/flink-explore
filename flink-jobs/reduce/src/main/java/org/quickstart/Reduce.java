@@ -13,6 +13,8 @@ public class Reduce {
         // Demonstrate usage of JobBaseCommon
         System.out.println(JobBaseCommon.getCommonMessage());
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(4);
+        System.out.println("Parallelism: " + env.getParallelism());
 
         DataStream<ElectronicOrder> electronicOrders = env.fromData(
             new ElectronicOrder("111", "trung", "HDTV", 2000.00, null),

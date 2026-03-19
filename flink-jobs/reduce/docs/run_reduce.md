@@ -1,5 +1,11 @@
 We can run in two `execution mode`: `STREAMING` (default) and `BATCH`
 
+This Flink job counts total price for each `electronic_id`.
+
+Note that when group by key, it will partition into subtasks based on the number of grouped keys. All tasks are run in parallel.
+
+* If number of parallelism > number of keys, some tasks will sit idle.
+
 ## Run with `STREAMING` mode
 This mode can be used for both `bounded` or `unbounded` input source. This code uses `bounded` input source (for testing & demo purpose).
 Then in production, actual input source can be `unbounded` stream.
