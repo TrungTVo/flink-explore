@@ -34,7 +34,7 @@ public class BranchStreams {
                             totalPrice,
                             null);
                 })
-                .print();
+                .print("b1 [electronic_id]");
 
         DataStream<ElectronicOrder> electronicOrders_traced_one_partition = electronicOrders
                 .map(new RichMapFunction<ElectronicOrder, ElectronicOrder>() {
@@ -57,7 +57,7 @@ public class BranchStreams {
                             totalPrice,
                             null);
                 })
-                .print();
+                .print("b2 [common_key_partition]");
 
         JobClient jobClient = env.executeAsync("Branch Streams");
 
