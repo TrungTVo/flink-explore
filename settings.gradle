@@ -6,6 +6,7 @@ include(":stream-files-connector")
 include(":word-count")
 include(":reduce")
 include(":branch-streams")
+include(":processFunction")
 
 // Point each project to its physical directory under flink-jobs/
 project(":common").projectDir = file("flink-jobs/common")
@@ -13,3 +14,4 @@ project(":stream-files-connector").projectDir = file("flink-jobs/stream-files-co
 project(":word-count").projectDir = file("flink-jobs/word-count")
 project(":reduce").projectDir = file("flink-jobs/reduce")
 project(":branch-streams").projectDir = file("flink-jobs/branch-streams")
+project(":processFunction").projectDir = file("flink-jobs/processFunction")
