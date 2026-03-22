@@ -23,23 +23,11 @@ A collection of Apache Flink streaming job demos built with Gradle and Java 21.
 
 ## Build & Run
 
-```bash
-# Build all jobs (fat JARs)
-./gradlew shadowJar
+### Start the Flink Cluster
+Refer to `deployment` folder and `README.md` file.
 
-# Run a specific job locally
-./gradlew :word-count:run
-./gradlew :reduce:run
-./gradlew :branch-streams:run
-./gradlew :processFunction:run
-./gradlew :keyedProcessFunction:run
-
-# Start Flink cluster (session mode)
-docker compose -f deployment/session-mode/docker-compose.yml up -d
-
-# Start Flink cluster (application mode)
-docker compose -f deployment/application-mode/docker-compose.yml up -d
-```
+### Run Individual Flink Job
+Refer to `docs/multi_jobs_setup.md`
 
 ## Conventions
 

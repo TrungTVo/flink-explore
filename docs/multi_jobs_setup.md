@@ -48,42 +48,42 @@ flink-explore/
 ## How to run individual Flink Job
 
 ### For Common Module
-```
+```bash
 ./gradlew :common:clean
 ./gradlew :common:compileJava
 ./gradlew :common:jar
 ```
 
 ### For Individual Flink Job
-```
+```bash
 ./gradlew :job1:clean
 ./gradlew :job1:compileJava
 ./gradlew :job1:shadowJar
 ```
 
 Inspecting dependencies of Flink Job's fat JAR
-```
+```bash
 ./gradlew :job1:dependencies --configuration flinkShadowJar
 ```
 
 If your IDE cannot recognize all dependencies, including custom configurations like `flinkShadowJar`. Run:
-```
+```bash
 ./gradlew :job1:cleanEclipse
 ./gradlew :job1:eclipse
 ```
 
 Check Flink Job classpath from its fat JAR
-```
+```bash
 jar tf flink-jobs/job1/build/libs/job1-0.1-all.jar
 ```
 
 Push Flink Job's fat JAR and common thin JAR to Flink Cluster
-```
+```bash
 docker cp ./flink-jobs/job1/build/libs/job1-0.1-all.jar jobmanager:/opt/flink/examples/streaming/
 docker cp ./flink-jobs/common/build/libs/common-0.1.jar jobmanager:/opt/flink/lib
 ```
 
 Execute Flink Job
-```
+```bash
 flink run /opt/flink/examples/streaming/job1-0.1-all.jar
 ```
