@@ -27,7 +27,7 @@ A collection of Apache Flink streaming job demos built with Gradle and Java 21.
 Refer to `deployment` folder and `README.md` file.
 
 ### Run Individual Flink Job
-Refer to `docs/multi_jobs_setup.md`
+Use `/build-flink-job` command with flink job's name as argument to build, package and deploy flink job's fat JAR to Flink Cluster.
 
 ## Conventions
 
