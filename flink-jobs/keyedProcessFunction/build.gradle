@@ -1,0 +1,18 @@
+dependencies {
+    flinkShadowJar project(":common")
+
+    // Example: add libraries needed only by this job
+}
+
+shadowJar {
+    archiveBaseName.set("keyedProcessFunction")
+    // Ensure manifest has a Main-Class so you can run it as an application artifact if needed
+    // manifest {
+    //     attributes "Main-Class": "org.quickstart.WordCount"
+    // }
+}
+
+application {
+    mainClass = 'org.quickstart.KeyedProcessFunctionDemo'
+    applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=log4j2.properties"]
+}
