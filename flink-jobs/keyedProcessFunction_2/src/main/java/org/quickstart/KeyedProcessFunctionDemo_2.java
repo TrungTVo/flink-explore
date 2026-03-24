@@ -26,7 +26,7 @@ public class KeyedProcessFunctionDemo_2 {
             .process(new CustomKeyedProcessFunction())
             .print("output");
 
-        JobClient jobClient = env.executeAsync("keyedProcessFunction Demo");
+        JobClient jobClient = env.executeAsync("keyedProcessFunction_2 Demo");
 
         System.out.println("Job submitted, waiting for completion...");
 
