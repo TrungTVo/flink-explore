@@ -9,6 +9,7 @@ include(":branch-streams")
 include(":processFunction")
 include(":keyedProcessFunction")
 include(":keyedProcessFunction_2")
+include(":processAllWindowFunction")
 
 // Point each project to its physical directory under flink-jobs/
 project(":common").projectDir = file("flink-jobs/common")
@@ -19,3 +20,4 @@ project(":branch-streams").projectDir = file("flink-jobs/branch-streams")
 project(":processFunction").projectDir = file("flink-jobs/processFunction")
 project(":keyedProcessFunction").projectDir = file("flink-jobs/keyedProcessFunction")
 project(":keyedProcessFunction_2").projectDir = file("flink-jobs/keyedProcessFunction_2")
+project(":processAllWindowFunction").projectDir = file("flink-jobs/processAllWindowFunction")
