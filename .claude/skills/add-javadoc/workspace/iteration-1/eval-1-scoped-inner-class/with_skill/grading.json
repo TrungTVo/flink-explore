@@ -1,0 +1,31 @@
+{
+  "eval_id": 1,
+  "run": "with_skill",
+  "expectations": [
+    {
+      "text": "AvgWindowFunction class has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Incrementally accumulates the sum and count of order prices... */ present before class declaration"
+    },
+    {
+      "text": "All four methods of AvgWindowFunction have Javadoc comments",
+      "passed": true,
+      "evidence": "createAccumulator, add, getResult, merge all have Javadoc"
+    },
+    {
+      "text": "AggregateDemo class declaration has no Javadoc added",
+      "passed": true,
+      "evidence": "public class AggregateDemo has no /** */ block before it"
+    },
+    {
+      "text": "main() method has no Javadoc added",
+      "passed": true,
+      "evidence": "public static void main has no Javadoc block before it"
+    },
+    {
+      "text": "AvgProcessWindowFunction has no Javadoc added",
+      "passed": true,
+      "evidence": "private static class AvgProcessWindowFunction has no Javadoc block before it"
+    }
+  ]
+}

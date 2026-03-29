@@ -1,0 +1,41 @@
+{
+  "eval_id": 2,
+  "run": "with_skill",
+  "expectations": [
+    {
+      "text": "KeyedProcessFunctionDemo class has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Flink streaming job demonstrating KeyedProcessFunction with per-key state... */ present"
+    },
+    {
+      "text": "main() has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Builds and submits the Flink pipeline, then waits for the job to finish. */ present"
+    },
+    {
+      "text": "open() has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Initializes the Flink managed state descriptors for sum and concat accumulators. */ present"
+    },
+    {
+      "text": "processElement() has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Routes each record to the numeric or alphabetic accumulator... */ present with @param tags"
+    },
+    {
+      "text": "Existing Javadoc on CustomKeySelector is preserved verbatim",
+      "passed": true,
+      "evidence": "Original /** Routes each input record to a key group... */ comment unchanged"
+    },
+    {
+      "text": "Existing Javadoc on CustomKeyedProcessFunction is preserved verbatim",
+      "passed": true,
+      "evidence": "Original /** Processes keyed records by maintaining per-key state... */ comment unchanged"
+    },
+    {
+      "text": "Existing comments on sumState and concatState fields are preserved",
+      "passed": true,
+      "evidence": "Both /** Tracks the running total... */ and /** Builds a comma-separated... */ field comments unchanged"
+    }
+  ]
+}

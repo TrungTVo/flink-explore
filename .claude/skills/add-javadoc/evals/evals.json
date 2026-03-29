@@ -1,0 +1,51 @@
+{
+  "skill_name": "add-javadoc",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Add javadoc comments to flink-jobs/aggregate/src/main/java/org/quickstart/AggregateDemo.java",
+      "expected_output": "AggregateDemo.java with Javadoc on the class, main(), AvgWindowFunction, AvgProcessWindowFunction, and all their methods. No existing code altered.",
+      "files": ["flink-jobs/aggregate/src/main/java/org/quickstart/AggregateDemo.java"],
+      "assertions": [
+        {"id": "a0_class_doc", "description": "AggregateDemo class has a Javadoc comment"},
+        {"id": "a1_main_doc", "description": "main() method has a Javadoc comment"},
+        {"id": "a2_avg_window_class_doc", "description": "AvgWindowFunction class has a Javadoc comment"},
+        {"id": "a3_create_acc_doc", "description": "createAccumulator() method has a Javadoc comment"},
+        {"id": "a4_add_doc", "description": "add() method has a Javadoc comment"},
+        {"id": "a5_get_result_doc", "description": "getResult() method has a Javadoc comment"},
+        {"id": "a6_merge_doc", "description": "merge() method has a Javadoc comment"},
+        {"id": "a7_process_window_class_doc", "description": "AvgProcessWindowFunction class has a Javadoc comment"},
+        {"id": "a8_process_method_doc", "description": "process() method has a Javadoc comment"},
+        {"id": "a9_no_code_changed", "description": "All original non-comment code lines are preserved unchanged"}
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Add comments only to the AvgWindowFunction inner class in flink-jobs/aggregate/src/main/java/org/quickstart/AggregateDemo.java",
+      "expected_output": "Only AvgWindowFunction and its four methods (createAccumulator, add, getResult, merge) get Javadoc. The outer AggregateDemo class, main(), and AvgProcessWindowFunction are left untouched.",
+      "files": ["flink-jobs/aggregate/src/main/java/org/quickstart/AggregateDemo.java"],
+      "assertions": [
+        {"id": "b0_avg_window_class_doc", "description": "AvgWindowFunction class has a Javadoc comment"},
+        {"id": "b1_methods_doc", "description": "All four methods of AvgWindowFunction have Javadoc comments"},
+        {"id": "b2_outer_class_untouched", "description": "AggregateDemo class declaration has no Javadoc added"},
+        {"id": "b3_main_untouched", "description": "main() method has no Javadoc added"},
+        {"id": "b4_process_window_untouched", "description": "AvgProcessWindowFunction has no Javadoc added"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Document this java file: flink-jobs/keyedProcessFunction/src/main/java/org/quickstart/KeyedProcessFunctionDemo.java",
+      "expected_output": "Adds Javadoc to KeyedProcessFunctionDemo class, main(), open(), and processElement(). Leaves existing comments on CustomKeySelector and CustomKeyedProcessFunction untouched.",
+      "files": ["flink-jobs/keyedProcessFunction/src/main/java/org/quickstart/KeyedProcessFunctionDemo.java"],
+      "assertions": [
+        {"id": "c0_outer_class_doc", "description": "KeyedProcessFunctionDemo class has a Javadoc comment"},
+        {"id": "c1_main_doc", "description": "main() has a Javadoc comment"},
+        {"id": "c2_open_doc", "description": "open() has a Javadoc comment"},
+        {"id": "c3_process_element_doc", "description": "processElement() has a Javadoc comment"},
+        {"id": "c4_key_selector_preserved", "description": "Existing Javadoc on CustomKeySelector is preserved verbatim"},
+        {"id": "c5_keyed_process_fn_preserved", "description": "Existing Javadoc on CustomKeyedProcessFunction is preserved verbatim"},
+        {"id": "c6_field_comments_preserved", "description": "Existing comments on sumState and concatState fields are preserved"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "scoped-inner-class",
+  "prompt": "Add comments only to the AvgWindowFunction inner class in flink-jobs/aggregate/src/main/java/org/quickstart/AggregateDemo.java",
+  "assertions": [
+    {"id": "b0_avg_window_class_doc", "description": "AvgWindowFunction class has a Javadoc comment"},
+    {"id": "b1_methods_doc", "description": "All four methods of AvgWindowFunction have Javadoc comments"},
+    {"id": "b2_outer_class_untouched", "description": "AggregateDemo class declaration has no Javadoc added"},
+    {"id": "b3_main_untouched", "description": "main() method has no Javadoc added"},
+    {"id": "b4_process_window_untouched", "description": "AvgProcessWindowFunction has no Javadoc added"}
+  ]
+}

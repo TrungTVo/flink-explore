@@ -1,0 +1,56 @@
+{
+  "eval_id": 0,
+  "run": "without_skill",
+  "expectations": [
+    {
+      "text": "AggregateDemo class has a Javadoc comment",
+      "passed": true,
+      "evidence": "Multi-line Javadoc present before class AggregateDemo, though verbose (5 lines vs skill's 2)"
+    },
+    {
+      "text": "main() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "Multi-line Javadoc with @param and @throws present before main()"
+    },
+    {
+      "text": "AvgWindowFunction class has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc present, though it describes implementation details rather than pipeline role"
+    },
+    {
+      "text": "createAccumulator() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc with @return present"
+    },
+    {
+      "text": "add() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc with @param and @return present"
+    },
+    {
+      "text": "getResult() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc with @param and @return present"
+    },
+    {
+      "text": "merge() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc with @param and @return present"
+    },
+    {
+      "text": "AvgProcessWindowFunction class has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc present with generic description"
+    },
+    {
+      "text": "process() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc with @param and @throws present"
+    },
+    {
+      "text": "All original non-comment code lines are preserved unchanged",
+      "passed": true,
+      "evidence": "All method bodies intact"
+    }
+  ]
+}

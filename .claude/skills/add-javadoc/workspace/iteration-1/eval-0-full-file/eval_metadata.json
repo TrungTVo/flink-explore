@@ -1,0 +1,17 @@
+{
+  "eval_id": 0,
+  "eval_name": "full-file-aggregate-demo",
+  "prompt": "Add javadoc comments to flink-jobs/aggregate/src/main/java/org/quickstart/AggregateDemo.java",
+  "assertions": [
+    {"id": "a0_class_doc", "description": "AggregateDemo class has a Javadoc comment"},
+    {"id": "a1_main_doc", "description": "main() method has a Javadoc comment"},
+    {"id": "a2_avg_window_class_doc", "description": "AvgWindowFunction class has a Javadoc comment"},
+    {"id": "a3_create_acc_doc", "description": "createAccumulator() method has a Javadoc comment"},
+    {"id": "a4_add_doc", "description": "add() method has a Javadoc comment"},
+    {"id": "a5_get_result_doc", "description": "getResult() method has a Javadoc comment"},
+    {"id": "a6_merge_doc", "description": "merge() method has a Javadoc comment"},
+    {"id": "a7_process_window_class_doc", "description": "AvgProcessWindowFunction class has a Javadoc comment"},
+    {"id": "a8_process_method_doc", "description": "process() method has a Javadoc comment"},
+    {"id": "a9_no_code_changed", "description": "All original non-comment code lines are preserved unchanged"}
+  ]
+}

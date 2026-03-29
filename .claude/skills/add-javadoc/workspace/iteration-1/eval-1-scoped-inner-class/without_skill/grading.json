@@ -1,0 +1,31 @@
+{
+  "eval_id": 1,
+  "run": "without_skill",
+  "expectations": [
+    {
+      "text": "AvgWindowFunction class has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Implementation of AggregateFunction... */ present before class declaration"
+    },
+    {
+      "text": "All four methods of AvgWindowFunction have Javadoc comments",
+      "passed": true,
+      "evidence": "createAccumulator, add, getResult, merge all have Javadoc"
+    },
+    {
+      "text": "AggregateDemo class declaration has no Javadoc added",
+      "passed": true,
+      "evidence": "public class AggregateDemo has no Javadoc block"
+    },
+    {
+      "text": "main() method has no Javadoc added",
+      "passed": true,
+      "evidence": "main() has no Javadoc block"
+    },
+    {
+      "text": "AvgProcessWindowFunction has no Javadoc added",
+      "passed": true,
+      "evidence": "AvgProcessWindowFunction has no Javadoc block"
+    }
+  ]
+}

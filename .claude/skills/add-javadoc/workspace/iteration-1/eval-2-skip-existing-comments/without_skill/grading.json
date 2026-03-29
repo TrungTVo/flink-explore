@@ -1,0 +1,41 @@
+{
+  "eval_id": 2,
+  "run": "without_skill",
+  "expectations": [
+    {
+      "text": "KeyedProcessFunctionDemo class has a Javadoc comment",
+      "passed": true,
+      "evidence": "Multi-line Javadoc present before class declaration"
+    },
+    {
+      "text": "main() has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc with @param and @throws present"
+    },
+    {
+      "text": "open() has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc with @param and @throws present"
+    },
+    {
+      "text": "processElement() has a Javadoc comment",
+      "passed": true,
+      "evidence": "Javadoc with @param and @throws present"
+    },
+    {
+      "text": "Existing Javadoc on CustomKeySelector is preserved verbatim",
+      "passed": true,
+      "evidence": "Original comment unchanged"
+    },
+    {
+      "text": "Existing Javadoc on CustomKeyedProcessFunction is preserved verbatim",
+      "passed": true,
+      "evidence": "Original comment unchanged"
+    },
+    {
+      "text": "Existing comments on sumState and concatState fields are preserved",
+      "passed": true,
+      "evidence": "Both field comments unchanged"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "eval_id": 2,
+  "eval_name": "skip-existing-comments",
+  "prompt": "Document this java file: flink-jobs/keyedProcessFunction/src/main/java/org/quickstart/KeyedProcessFunctionDemo.java",
+  "assertions": [
+    {"id": "c0_outer_class_doc", "description": "KeyedProcessFunctionDemo class has a Javadoc comment"},
+    {"id": "c1_main_doc", "description": "main() has a Javadoc comment"},
+    {"id": "c2_open_doc", "description": "open() has a Javadoc comment"},
+    {"id": "c3_process_element_doc", "description": "processElement() has a Javadoc comment"},
+    {"id": "c4_key_selector_preserved", "description": "Existing Javadoc on CustomKeySelector is preserved verbatim"},
+    {"id": "c5_keyed_process_fn_preserved", "description": "Existing Javadoc on CustomKeyedProcessFunction is preserved verbatim"},
+    {"id": "c6_field_comments_preserved", "description": "Existing comments on sumState and concatState fields are preserved"}
+  ]
+}

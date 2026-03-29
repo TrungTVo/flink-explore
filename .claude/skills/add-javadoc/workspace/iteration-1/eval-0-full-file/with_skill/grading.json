@@ -1,0 +1,56 @@
+{
+  "eval_id": 0,
+  "run": "with_skill",
+  "expectations": [
+    {
+      "text": "AggregateDemo class has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Flink streaming job that computes the average order price per electronic product... */ appears before public class AggregateDemo"
+    },
+    {
+      "text": "main() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Builds the Flink pipeline, submits the job asynchronously, and waits for completion. */ appears before main()"
+    },
+    {
+      "text": "AvgWindowFunction class has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Incrementally accumulates the sum and count of order prices... */ appears before class AvgWindowFunction"
+    },
+    {
+      "text": "createAccumulator() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Returns a zeroed (sum=0.0, count=0) accumulator. */ present"
+    },
+    {
+      "text": "add() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Adds one order's price to the running accumulator. */ with @param and @return present"
+    },
+    {
+      "text": "getResult() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Computes the average price from the final accumulator. */ with @param and @return present"
+    },
+    {
+      "text": "merge() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Merges two partial accumulators by summing their totals and counts. */ with @param and @return present"
+    },
+    {
+      "text": "AvgProcessWindowFunction class has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Receives the pre-aggregated average from AvgWindowFunction, logs the window boundaries... */ present"
+    },
+    {
+      "text": "process() method has a Javadoc comment",
+      "passed": true,
+      "evidence": "/** Logs the window key, time range, and record count, then forwards the average. */ present"
+    },
+    {
+      "text": "All original non-comment code lines are preserved unchanged",
+      "passed": true,
+      "evidence": "All method bodies, variable declarations, and logic are identical to original"
+    }
+  ]
+}
