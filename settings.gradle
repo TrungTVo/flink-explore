@@ -11,6 +11,7 @@ include(":keyedProcessFunction")
 include(":keyedProcessFunction_2")
 include(":processAllWindowFunction")
 include(":aggregate")
+include(":inactivity-alert")
 
 // Point each project to its physical directory under flink-jobs/
 project(":common").projectDir = file("flink-jobs/common")
@@ -23,3 +24,4 @@ project(":keyedProcessFunction").projectDir = file("flink-jobs/keyedProcessFunct
 project(":keyedProcessFunction_2").projectDir = file("flink-jobs/keyedProcessFunction_2")
 project(":processAllWindowFunction").projectDir = file("flink-jobs/processAllWindowFunction")
 project(":aggregate").projectDir = file("flink-jobs/aggregate")
+project(":inactivity-alert").projectDir = file("flink-jobs/inactivity-alert")
