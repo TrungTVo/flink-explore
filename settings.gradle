@@ -13,6 +13,7 @@ include(":processAllWindowFunction")
 include(":aggregate")
 include(":inactivity-alert")
 include(":lateness-no-accept")
+include(":lateness-no-accept-sideoutput")
 
 // Point each project to its physical directory under flink-jobs/
 project(":common").projectDir = file("flink-jobs/common")
@@ -27,3 +28,4 @@ project(":processAllWindowFunction").projectDir = file("flink-jobs/processAllWin
 project(":aggregate").projectDir = file("flink-jobs/aggregate")
 project(":inactivity-alert").projectDir = file("flink-jobs/inactivity-alert")
 project(":lateness-no-accept").projectDir = file("flink-jobs/lateness-no-accept")
+project(":lateness-no-accept-sideoutput").projectDir = file("flink-jobs/lateness-no-accept-sideoutput")
