@@ -15,6 +15,7 @@ include(":inactivity-alert")
 include(":lateness-no-accept")
 include(":lateness-no-accept-sideoutput")
 include(":lateness-accept")
+include(":bounded-out-of-order")
 
 // Point each project to its physical directory under flink-jobs/
 project(":common").projectDir = file("flink-jobs/common")
@@ -31,3 +32,4 @@ project(":inactivity-alert").projectDir = file("flink-jobs/inactivity-alert")
 project(":lateness-no-accept").projectDir = file("flink-jobs/lateness-no-accept")
 project(":lateness-no-accept-sideoutput").projectDir = file("flink-jobs/lateness-no-accept-sideoutput")
 project(":lateness-accept").projectDir = file("flink-jobs/lateness-accept")
+project(":bounded-out-of-order").projectDir = file("flink-jobs/bounded-out-of-order")
