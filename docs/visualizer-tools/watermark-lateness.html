@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flink Stream Visualizer — Watermark & Allowed Lateness</title>
+  <link rel="icon" href="data:,">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
@@ -22,7 +23,10 @@
 
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Babel 8 defaults the React preset to the automatic JSX runtime, which
+       emits ESM imports that cannot run in this classic inline script. Keep
+       the standalone transformer on Babel 7 for React's classic UMD runtime. -->
+  <script src="https://unpkg.com/@babel/standalone@7.28.5/babel.min.js"></script>
 
   <script type="text/babel" data-presets="react">
     const { useState, useEffect, useRef } = React;
@@ -346,7 +350,7 @@
                             <span>{end}s</span>
                           </div>
 
-                          {watermark >= start && watermark <= end + 5 && (
+                          {watermark >= start && watermark < end && (
                             <div
                               className="absolute top-0 bottom-0 w-0.5 bg-blue-600 z-30 transition-all duration-500 shadow-[0_0_10px_rgba(37,99,235,0.3)]"
                               style={{ left: `${((watermark - start) / windowSize) * 100}%` }}

@@ -1,232 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="output" path="bin/default"/>
-	<classpathentry output="bin/main" kind="src" path="src/main/java">
+	<classpathentry kind="src" output="bin/main" path="src/main/resources">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry output="bin/main" kind="src" path="src/main/resources">
+	<classpathentry kind="src" output="bin/main" path="src/main/java">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21/"/>
+	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry kind="src" path="/common">
 		<attributes>
-			<attribute name="without_test_code" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-clients/2.2.0/1c85d44cb7d8116d081b4916ea309d85dffe2d62/flink-clients-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-clients/2.2.0/b2882ad40a1cb851e01d8499a66fda7b4d61f7a2/flink-clients-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-datastream/2.2.0/cdecdd0b651ef9eefb77d8260880a8f0e89c5884/flink-datastream-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-datastream/2.2.0/24641ba3dca9d1818f8a554a6f43e27333c017f6/flink-datastream-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-streaming-java/2.2.0/7421857c9548c55cd7df8cf30e7e7084def98d6d/flink-streaming-java-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-streaming-java/2.2.0/b628894a11b39e93734163b4402706548da4d5b3/flink-streaming-java-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-runtime/2.2.0/cc8f099fa6e0fbe54c8c1a8d1ce093fc81c6d542/flink-runtime-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-runtime/2.2.0/3de653ea6806bae27e4b15af4f1717acfa245751/flink-runtime-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-rpc-akka-loader/2.2.0/7a77e2dced401ea2a6e86a6bf183d9b871931d94/flink-rpc-akka-loader-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-rpc-akka-loader/2.2.0/f70f168fd08e6e87b1b337d1087f9f1a6b4c6bd7/flink-rpc-akka-loader-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-hadoop-fs/2.2.0/6a5aac03fe05c2d8d101dfb5c91b2ade2334adbf/flink-hadoop-fs-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-hadoop-fs/2.2.0/5b975e96d68cd6253f9f6a72255a8789089cf49/flink-hadoop-fs-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-core/2.2.0/757b6b214fbeb70541d8f77e225f978d52db71ae/flink-core-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-core/2.2.0/f954305ca27f0f91f321af7ec51bb5b0e4d93e2c/flink-core-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-file-sink-common/2.2.0/f32c9bec7879577a1d8dce407d6bfe0dfffcd76b/flink-file-sink-common-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-file-sink-common/2.2.0/2c2bc747a9549339c4c8485e72d82fab23936708/flink-file-sink-common-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-queryable-state-client-java/2.2.0/71884fc42630e44b20652f6f73f558b7c599b122/flink-queryable-state-client-java-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-queryable-state-client-java/2.2.0/cab35339bddb0074b10fe5afefabbfb950b8277f/flink-queryable-state-client-java-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-shaded-guava/33.4.0-jre-20.0/470ecb733c2f6dbd89585a255f348957cf46421b/flink-shaded-guava-33.4.0-jre-20.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/8fab23986ea8886af34818daf32a718e81dc98ba/commons-math3-3.6.1-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf/commons-math3-3.6.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-datastream-api/2.2.0/a23c1e9f491bae22194fe091ce0b6b8e16f4d3ce/flink-datastream-api-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-datastream-api/2.2.0/5e8901864b5e700891663125eb2a2b832ad0bceb/flink-datastream-api-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-core-api/2.2.0/135e20b154a5e2b1c95ed05895cb47ddcfe38ce1/flink-core-api-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-core-api/2.2.0/9f395bcd454df9828fd970a76c393cdde95cb020/flink-core-api-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-metrics-core/2.2.0/91a45316297928269f44a9b90f73f212882988b8/flink-metrics-core-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-metrics-core/2.2.0/660144cc8ed88fc9958f0dea9d1db640c97c788a/flink-metrics-core-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-annotations/2.2.0/3caf2917c72f68bb0e4c82c467439db5820de2a3/flink-annotations-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-annotations/2.2.0/22cd54ac2615e236b9d9abf21d6df9ae92ea10b9/flink-annotations-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-rpc-core/2.2.0/1c58018f6a7bb93178c84edfbd5978e6a75ba2fd/flink-rpc-core-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-rpc-core/2.2.0/8157eb6bc17baec8d9015cb135e7f5feb794202c/flink-rpc-core-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.36/ae9c1aae0033af915cfa75d850eb9d880f21a701/slf4j-api-1.7.36-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.36/6c62681a2f655b49963a5983b8b0950a6120ae14/slf4j-api-1.7.36.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.5.0/e7e198ff537780c2835e484b0ffccd2960074504/commons-cli-1.5.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.5.0/dc98be5d5390230684a092589d70ea76a147925c/commons-cli-1.5.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-shaded-asm-9/9.6-20.0/a525b5d84cd529973633605dee9452512d5d3299/flink-shaded-asm-9-9.6-20.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-shaded-jackson/2.18.2-20.0/6fbdfd65d8b31a97bee087cff2bde14936a6ef8a/flink-shaded-jackson-2.18.2-20.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text/1.10.0/99ad76c831fcf0edead47f3aa9c0731653a0845d/commons-text-1.10.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text/1.10.0/3363381aef8cef2dbc1023b3e3a9433b08b64e01/commons-text-1.10.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.26.0/35d0a3e49b7c2321c8445a375adc6df9d148c132/commons-compress-1.26.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.26.0/659feffdd12280201c8aacb8f7be94f9a883c824/commons-compress-1.26.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.18.0/aa3b54d85731a9cba78c647926ff0d0f9aaa16ea/commons-lang3-3.18.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.18.0/fb14946f0e39748a6571de0635acbe44e7885491/commons-lang3-3.18.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.snakeyaml/snakeyaml-engine/2.6/abdd05839d5224361db72501fcdf6af2f50408a0/snakeyaml-engine-2.6-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.snakeyaml/snakeyaml-engine/2.6/235a7e571b33eda1a81e0f73a3173ef95dd020e5/snakeyaml-engine-2.6.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryo/5.6.2/8c25cff63873d6a62daff3210b959cb903960647/kryo-5.6.2-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryo/5.6.2/c20a8ba517e93cb78001fd64da796f1ac5cd8214/kryo-5.6.2.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/78c50ebda5784937ca1615fc0e1d0cb35857d572/commons-collections-3.2.2-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5/commons-collections-3.2.2.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.15.1/f23737700ceaddc75169d994c7d9c9a2e5dddf39/commons-io-2.15.1-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.15.1/f11560da189ab563a5c8e351941415430e9304ea/commons-io-2.15.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-shaded-netty/4.1.100.Final-20.0/5880d365f7577f96bdbf29b8bca9cc645a5bd3e5/flink-shaded-netty-4.1.100.Final-20.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-shaded-zookeeper-3/3.7.2-20.0/b474fe27c9304c5cfc949cd0eb24d043a8cd6b26/flink-shaded-zookeeper-3-3.7.2-20.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-connector-datagen/2.2.0/46ffe4198124f3c5f31f0e2c2c361beec5e34dd0/flink-connector-datagen-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-connector-datagen/2.2.0/4a5a18595cf9cb3f32184078d3529dccc1e9adb7/flink-connector-datagen-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.24.0-GA/88e88c8e043968bac9b2e86df5cb4a7c2b9f0023/javassist-3.24.0-GA-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.24.0-GA/d7466fc2e3af7c023e95c510f06448ad29b225b3/javassist-3.24.0-GA.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.xerial.snappy/snappy-java/1.1.10.7/5cda9ee5207c58eaeaaa2b7627361c22a2cb6547/snappy-java-1.1.10.7-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.xerial.snappy/snappy-java/1.1.10.7/3049f95640f4625a945cfab85715f603fa4c8f80/snappy-java-1.1.10.7.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/tools.profiler/async-profiler/2.9/8b6556942fe0df3b460670315773ca5026c0e27d/async-profiler-2.9-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/tools.profiler/async-profiler/2.9/4ed20e2a4640ee672e7cf23b1512dbdeb9a4b7e6/async-profiler-2.9.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/7609c362f37f0c0bd3743bc1976df2daa28ad19e/lz4-java-1.8.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/4b986a99445e49ea5fbf5d149c4b63f6ed6c6780/lz4-java-1.8.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/reflectasm/1.11.9/2742ea81fc13f462eb8b76918e884af70dbb9de5/reflectasm-1.11.9-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/reflectasm/1.11.9/fd51ad1705d5e27d8785550172a4ab0cb9b8ad23/reflectasm-1.11.9.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/3.4/5eac31db28388362cf0d241cf608b3c6a50b156/objenesis-3.4-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/3.4/675cbe121a68019235d27f6c34b4f0ac30e07418/objenesis-3.4.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/minlog/1.3.1/5bc069c1f39adb3ee23f6c5a715dfc8c8b8c3a30/minlog-1.3.1-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/minlog/1.3.1/a406e29d3a44d5f020d7b3218aee6d0952db4f73/minlog-1.3.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.24.3/451669a673b5e6edf7a718dec1656b70bc2a20ef/log4j-slf4j-impl-2.24.3-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.24.3/182894dfec8b730639c9ea065f1084ba85fcbaa3/log4j-slf4j-impl-2.24.3.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.24.3/831c75203e0b74ab296fd320fd99afe18a1629a1/log4j-core-2.24.3-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.24.3/7f6a261243ca767c7f38fd4b542bcde626c8894e/log4j-core-2.24.3.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.24.3/a9741c71e05aab4f5624a1cb3c1cec6d833b8701/log4j-api-2.24.3-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.24.3/b02c125db8b6d295adf72ae6e71af5d83bce2370/log4j-api-2.24.3.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-connector-files/2.2.0/a676fe3e6ffdc4e0c6e84269b69aee5d04423a2e/flink-connector-files-2.2.0-sources.jar" kind="lib" path="/Users/trungtvo/.gradle/caches/modules-2/files-2.1/org.apache.flink/flink-connector-files/2.2.0/d5825acbc5d5e8b82d312213f7712149df8a21e5/flink-connector-files-2.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="output" path="bin/default"/>
 </classpath>
