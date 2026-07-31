@@ -77,7 +77,9 @@ public class LatenessNoAcceptSideOutputDemo {
             // This record belongs to the first window, but arrives late.
             new ElectronicOrder("333", "trung", "ABCD", 4500.00, 
                 Instant.parse(start).plusSeconds(8).toEpochMilli())                               // event time 00:00:08
-        );
+        )
+        .name("input")
+        .uid("input");
 
         OutputTag<ElectronicOrder> lateTag = new OutputTag<ElectronicOrder>("too-late-records") {};
 
@@ -100,13 +102,23 @@ public class LatenessNoAcceptSideOutputDemo {
                     })
                     .withTimestampAssigner((inputRecord, ts) -> inputRecord.timestamp)
             )
+            .name("assign-watermarks")
+            .uid("assign-watermarks")
             .windowAll(TumblingEventTimeWindows.of(Duration.ofSeconds(10)))
             .allowedLateness(Duration.ofSeconds(5))        // allow lateness of 5 seconds
             .sideOutputLateData(lateTag)
-            .process(new SumAllWindowFunction());
+            .process(new SumAllWindowFunction())
+            .name("sum-all-window")
+            .uid("sum-all-window");
 
-        outputWindowedStream.print("output >>>");
-        outputWindowedStream.getSideOutput(lateTag).print("late-records >>>");
+        outputWindowedStream.print("output >>>")
+            .name("output-sink")
+            .uid("output-sink");
+
+        outputWindowedStream.getSideOutput(lateTag)
+            .print("late-records >>>")
+            .name("late-records-sink")
+            .uid("late-records-sink");
 
         JobClient jobClient = env.executeAsync("LatenessNoAcceptSideOutputDemo");
 
