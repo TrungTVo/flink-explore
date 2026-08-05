@@ -1,0 +1,14 @@
+dependencies {
+    flinkShadowJar project(":common")
+
+    // Example: add libraries needed only by this job
+}
+
+shadowJar {
+    archiveBaseName.set("lateness-no-accept-sideoutput-checkpoint")
+}
+
+application {
+    mainClass = "org.quickstart.LatenessNoAcceptSideOutputCheckpointDemo"
+    applicationDefaultJvmArgs = ["-Dlog4j.configurationFile=log4j2.properties"]
+}
