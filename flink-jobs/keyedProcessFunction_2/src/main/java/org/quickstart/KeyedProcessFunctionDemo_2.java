@@ -1,6 +1,7 @@
 package org.quickstart;
 
 import org.apache.flink.api.common.JobExecutionResult;
+import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.core.execution.JobClient;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
@@ -10,6 +11,9 @@ import org.apache.flink.util.Collector;
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.common.JobBaseCommon;
+import org.apache.flink.api.common.typeinfo.Types;
+import org.apache.flink.connector.datagen.source.DataGeneratorSource;
+import org.apache.flink.connector.datagen.source.GeneratorFunction;
 
 
 public class KeyedProcessFunctionDemo_2 {
@@ -20,11 +24,17 @@ public class KeyedProcessFunctionDemo_2 {
         env.setParallelism(4);
         System.out.println("Parallelism: " + env.getParallelism());
 
-        DataStream<Integer> numbers = env.fromData(1, 2, 3, 4, 5, 6);
+        GeneratorFunction<Long, Long> generatorFunction = index -> index + 1;
+        DataGeneratorSource<Long> source = new DataGeneratorSource<>(generatorFunction, 1000, Types.LONG);
+        DataStream<Long> numbers = env.fromSource(source, WatermarkStrategy.noWatermarks(), "numbers-generator");
 
         numbers.keyBy(n -> n % 2 == 0 ? "even" : "odd")
             .process(new CustomKeyedProcessFunction())
-            .print("output");
+            .name("sum-by-key")
+            .uid("sum-by-key")
+            .print("output")
+            .name("output-sink")
+            .uid("output-sink");
 
         JobClient jobClient = env.executeAsync("keyedProcessFunction_2 Demo");
 
@@ -46,7 +56,7 @@ public class KeyedProcessFunctionDemo_2 {
      * On each element, it reads the current sum from state, adds the incoming record, updates
      * the state, and emits a string with the key, subtask info, and updated sum.
      */
-    private static class CustomKeyedProcessFunction extends KeyedProcessFunction<String, Integer, String> {
+    private static class CustomKeyedProcessFunction extends KeyedProcessFunction<String, Long, String> {
 
         /**
          * Keyed state holding the running sum for the current key.
@@ -55,17 +65,17 @@ public class KeyedProcessFunctionDemo_2 {
          * The single piece of logic written here (read → add → update) therefore runs correctly
          * for every key without any manual key-checking; Flink handles the isolation.
          */
-        private transient ValueState<Integer> sumState;
+        private transient ValueState<Long> sumState;
 
         @Override
         public void open(OpenContext openContext) throws Exception {
-            ValueStateDescriptor<Integer> sumDescriptor = new ValueStateDescriptor<>("sum", Integer.class);
+            ValueStateDescriptor<Long> sumDescriptor = new ValueStateDescriptor<>("sum", Long.class);
             sumState = getRuntimeContext().getState(sumDescriptor);
         }
 
         @Override
         public void processElement(
-                Integer record,
+                Long record,
                 Context ctx,
                 Collector<String> out) throws Exception {
 
@@ -73,9 +83,9 @@ public class KeyedProcessFunctionDemo_2 {
             int subtaskIndex = getRuntimeContext().getTaskInfo().getIndexOfThisSubtask();
             int numSubtasks = getRuntimeContext().getTaskInfo().getNumberOfParallelSubtasks();
 
-            Integer currentSum = sumState.value();
+            Long currentSum = sumState.value();
             if (currentSum == null) {
-                currentSum = 0;
+                currentSum = 0L;
             }
             currentSum += record;
             sumState.update(currentSum);
